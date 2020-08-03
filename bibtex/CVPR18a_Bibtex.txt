@@ -1,0 +1,7 @@
+@InProceedings{ma2017disentangled, 
+author = {Ma, Liqian and Sun, Qianru and Georgoulis, Stamatios and Van Gool, Luc and Schiele, Bernt and Fritz, Mario}, 
+title = {Disentangled Person Image Generation}, 
+booktitle = {The IEEE International Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+month = {June}, 
+year = {2018} 
+}

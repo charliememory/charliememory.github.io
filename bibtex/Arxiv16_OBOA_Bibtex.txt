@@ -1,0 +1,6 @@
+@article{ma2016orientation,
+  title={Orientation driven bag of appearances for person re-identification},
+  author={Ma, Liqian and Liu, Hong and Hu, Liang and Wang, Can and Sun, Qianru},
+  journal={arXiv preprint arXiv:1605.02464},
+  year={2016}
+}

@@ -1,0 +1,6 @@
+@article{wang2018shapeTranslation,
+  title={Unsupervised shape transformer for image translation and cross-domain retrieval},
+  author={Wang, Kaili and Ma, Liqian and Oramas M., Jose and Van Gool, Luc and Tuytelaars, Tinne},
+  journal={arXiv preprint arXiv:1812.02134},
+  year={2018}
+}

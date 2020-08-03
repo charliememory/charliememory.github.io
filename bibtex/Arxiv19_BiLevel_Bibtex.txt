@@ -1,0 +1,6 @@
+@article{ma2019novel,
+  title={A Novel BiLevel Paradigm for Image-to-Image Translation},
+  author={Ma, Liqian and Sun, Qianru and Schiele, Bernt and Van Gool, Luc},
+  journal={arXiv preprint arXiv:1904.09028},
+  year={2019}
+}

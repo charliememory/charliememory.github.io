@@ -1,0 +1,183 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Unselfie: Translating Selfies to Neutral-pose Portraits in the Wild</title>
+  <link rel="stylesheet" href="./project.css?v={random number/string}">
+  <!-- <link rel="stylesheet" href="../ThirdParty/font-awesome/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script language="JavaScript">
+    function ShowHide(divId) {
+      if (document.getElementById(divId).style.display == 'none') {
+        document.getElementById(divId).style.display = 'block';
+      } else {
+        document.getElementById(divId).style.display = 'none';
+      }
+    }
+    </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+  <div id="footer"/></div>
+
+    <center>
+    <h1>Unselfie: Translating Selfies to Neutral-pose Portraits in the Wild</h1>
+    <span class="Authors"><a href="http://homes.esat.kuleuven.be/~liqianma/" target="_blank"><b>Liqian Ma,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://research.adobe.com/person/zhe-lin/" target="_blank"><b>Zhe Lin,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://research.adobe.com/person/connelly-barnes/" target="_blank"><b>Connelly Barnes,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://people.eecs.berkeley.edu/~efros/" target="_blank"><b>Alexei A. Efros,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://research.adobe.com/person/jingwan-lu/" target="_blank"><b>Jingwan Lu&nbsp;</b></a></span>
+    <p><b>ECCV 2020</b></p>
+    </center>
+    <!-- <img src="./misc/teaser.jpg" title="Teaser" style="width:808px; height: 386px;" align="middle"> -->
+
+  <div class="wrapper-bg">
+    <div class="navig">
+      <ul>
+      <li><a href="#Introduction" style="background-color: #003399;">Introduction</a></li>
+      <li><a href="#Resources">Resources</a></li>
+      <li><a href="#Method">Method</a></li>
+      <li><a href="#Applications">Results</a></li>
+      <!-- <li><a href="#Spotlight">Spotlight</a></li> -->
+<!--       <li><a href="./synthetic_smmo_cars.html">Synthetic 1</a></li>
+      <li><a href="./synthetic_mmso_cars.html">Synthetic 2</a></li>
+      <li><a href="./real_smmo_spheres.html">Real 1</a></li>
+      <li><a href="./real_smmo_toycars.html">Real 2</a></li>
+      <li><a href="./real_mmso_toycars.html">Real 3</a></li>
+      <li><a href="./real_mmso_objects.html">Real 4</a></li>
+      <li><a href="./real_smmo_objects.html">Real 5</a></li>
+      <li><a href="./real_smmo_web.html">Real 6</a></li> -->
+      </ul>
+    </div>
+  </div>
+  <hr/>
+  <div id="Introduction" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Introduction</h2>
+<!--     <p>Generating novel, yet realistic, images of persons is a challenging task due to the complex interplay between the different image factors, such as the foreground, background and pose information. In this work, we aim at generating such images based on a novel, two-stage reconstruction pipeline that learns a disentangled representation of the aforementioned image factors and generates novel person images at the same time. First, a multi-branched reconstruction network is proposed to disentangle and encode the three factors into embedding features, which are then combined to re-compose the input image itself. Second, three corresponding mapping functions are learned in an adversarial manner in order to map Gaussian noise to the learned embedding feature space, for each factor, respectively. Using the proposed framework, we can manipulate the foreground, background and pose of the input image, and also sample new embedding features to generate such targeted manipulations, that provide more control over the generation process. Experiments on the Market-1501 and Deepfashion datasets show that our model does not only generate realistic person images with new foregrounds, backgrounds and poses, but also manipulates the generated factors and interpolates the in-between states. Another set of experiments on Market-1501 shows that our model can also be beneficial for the person re-identification task.</p> -->
+
+    <p>Motivation:
+    make the selfie photo look like a well-composed portrait captured by a third-party photographer.
+    </p>
+    <p>Task:
+    unselfie, a novel photographic translation, that automatically translates a selfie into a neutral-pose portrait.
+    </p>
+    <p>Challenges:
+    1) Lack of paired selfie-portrait data.
+    2) Multi-modal results with different target neutral poses.
+    3) Dis-occlusion and seamless composition.
+    </p>
+    <p>Key idea:
+    1) Search the suitable neutral body pose. 2) Inpaint the body texture in coordinate space with synthesized pair data. 3) Refine body texture, fill in background holes, and compose body and background seamlessly.
+    </p>
+    <p>Contributions:
+    <ul>
+      <li>We introduce the unselfie problem, collect an unpaired dataset, and introduce a way to synthesize paired training data for self-supervised learning.</li>
+      <li>We introduce a three-stage pipeline to translate selfies into neutral-pose portraits.</li>
+      <li>We propose a novel nearest pose search module to obtain suitable multi-modal target neutral poses.</li>
+      <li>We design an all-in-one composition module to refine the foreground, complete the background, and compose them together seamlessly.</li>
+    </ul>
+    </p>
+    <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/b2IdzUe2hxI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </center>
+
+  </div>
+  <hr/>
+
+  <div id="Resources" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Resources</h2>
+    <div class="icons">
+      <span class="MaterialsForDL"><a href="../pdf/ECCV20_Unselfie.pdf" target="_blank"> <i class="fa fa-file-pdf-o fa-2x"></i>&nbsp;Paper&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="https://arxiv.org/abs/2007.15068" target="_blank"> <i class="fa fa-link fa-2x"></i>&nbsp;ArXiv&nbsp;</a></span>
+      <span class="MaterialsForDL"> <i class="fa fa-github fa-2x"></i>&nbsp;Code[come soon]&nbsp;</span>
+      <span class="MaterialsForDL"> <i class="fa fa-database fa-2x"></i>&nbsp;Dataset[come soon]&nbsp;</span>
+      <span class="MaterialsForDL"><a onclick="javascript:ShowHide('bibCVPR18DPIG')" href="javascript:;"><i class="fa fa-file-text-o fa-2x"></i>&nbsp;Bibtex&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="./ECCV20_Unselfie_slides.pdf" target="_blank"> <i class="fa fa-slideshare fa-2x"></i>&nbsp;Slides&nbsp;</a></span>
+    </div>
+
+    <div class="bib" id="bibECCV20Unselfie" style="DISPLAY: none">
+      <b>Bibtex</b>
+      <br>@inproceedings{ma2020unselfie,
+      <br> author = {Ma, Liqian and Lin, Zhe and Barnes, Connelly and Efros, Alexei A and Lu, Jingwan},
+      <br> title = {Unselfie: Translating Selfies to Neutral-pose Portraits in the Wild},
+      <br> booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+      <br> month = {August},
+      <br> year = {2020}
+      <br>} 
+    </div>
+  </div>
+  <hr/>
+
+  <div id="Framework" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Dataset</h2>
+    <p> We collect an unpaired selfie-portrait dataset. There are 4614 selfie photos collected from the Internet, and 23169 neutral-pose portraits collected from three public datasets. We then synthesize paired data for self-supervised learning.</p>
+    <center>
+    <img src="./imgs/dataset.svg" title="Dataset" style="width:800px;">
+    <!-- <img src="./imgs/pair_texture.svg" title="Paired texture data" style="width:500px;"> -->
+    </center>
+
+    <h2 >Pipeline</h2>
+    <p> Our pipeline contains three stages. First, Based on the input selfie <em>I<sub>in</sub></em>, we extract its pose information using DensePose. We perform nearest neighbour search on the pose representation to find the target neutral pose <em>P<sub>tgt</sub></em> that has the most similar pose configuration in the upper torso region. Second, using DensePose, we map the pixels in the input selfie to the visible regions of the target pose and then use coordinate-based inpainting [1] to synthesize a coarse human body. Finally, we then use a composition step to refine the coarse result by adding more details and composite it into the original background. 
+    <center>
+    <img src="./imgs/pipeline.svg" title="Pipeline" style="width:800px;">
+    </center>
+
+    <p><b>Nearest pose search module.</b>The detected selfie DensePose <em>P<sub>in</sub></em> is first aligned so that the two shoulder points are centered in the image <em>P<sub>src</sub></em>. Then we perform nearest neighbour search to find a target pose <em>P<sub>tgt</sub></em> from the neutral pose database that closely matches the input selfie pose in the upper torso region. </p>
+    <center>
+    <img src="./imgs/pose_search.svg" title="Nearest pose search" style="width:800px;">
+    </center>
+    <p></p>
+  </div>
+  <hr/>
+
+  <div id="Results" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Results</h2>
+    <p> Since we defined a brand new unselfie application, there is no prior work to compare to that addresses the exact same problem. Nevertheless, we introduce some modifications to three human synthesis methods, DPIG [2], VUNET [3], and PATN [4]. Note that these methods synthesize pixels based on a pre-specified target pose. To make their approaches work, we need to perform our proposed nearest pose search module to calculate <em>P<sub>tgt</sub></em> and then use their approaches to synthesize the final pixels. Furthermore, we also can synthesize multi-modal results for users to choose from.</p>
+    <ul>
+      <li>Comparisons</li>
+      <p></p>
+      <center>
+      <img src="./imgs/results.svg" style="width:1000px;">
+      </center>
+      <br/>
+
+      <li>Top-5 results</li>
+      <p></p>
+      <center>
+      <img src="./imgs/results_topk.svg" style="width:1000px;">
+      </center>
+      <br/>
+
+    </ul>
+    <p>References:<br/>
+    [1] Grigorev, A., et al. Coordinate-based texture inpainting for pose-guided image generation. In CVPR, 2019. <br/>
+    [2] Ma, L., et al. Disentangled person image generation. In CVPR, 2018. <br/>
+    [3] Esser, P., et al. A variational u-net for conditional appearance and shape generation. In CVPR, 2018. <br/>
+    [4] Zhu, Z., et al. Progressive pose attention transfer for person image generation. In CVPR, 2019. <br/>
+
+
+    </p>
+
+  </div>
+
+<!--   <hr/>
+  <div id="Spotlight" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Spotlight</h2>
+    <center>
+    <video width="900" height="450" controls>
+      <source src="./1801_with_audio_v2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    </center>
+  </div>
+  <hr/> -->
+
+  <div id="footer"/></div>
+</body>
+
+<html>

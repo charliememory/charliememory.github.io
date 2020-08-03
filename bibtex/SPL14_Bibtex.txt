@@ -1,0 +1,10 @@
+@article{wang2014depth,
+  title={Depth motion detection—A novel RS-trigger temporal logic based method},
+  author={Wang, Can and Liu, Hong and Ma, Liqian},
+  journal={IEEE Signal Processing Letters},
+  volume={21},
+  number={6},
+  pages={717--721},
+  year={2014},
+  publisher={IEEE}
+}

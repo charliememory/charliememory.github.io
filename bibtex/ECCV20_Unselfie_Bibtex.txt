@@ -1,0 +1,7 @@
+@inproceedings{ma2020unselfie,
+  title={Unselfie: Translating Selfies to Neutral-pose Portraits in the Wild},
+  author={Ma, Liqian and Lin, Zhe and Barnes, Connelly and Efros, Alexei A and Lu, Jingwan},
+  booktitle={ECCV},
+  month = {August}, 
+  year={2020}
+}

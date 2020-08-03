@@ -1,0 +1,7 @@
+@inproceedings{ma2018exemplar,
+  title={Exemplar Guided Unsupervised Image-to-Image Translation with Semantic Consistency},
+  author={Ma, Liqian and Jia, Xu and Georgoulis, Stamatios and Tuytelaars, Tinne and Van Gool, Luc},
+  booktitle={ICLR},
+  month = {May}, 
+  year={2019}
+}

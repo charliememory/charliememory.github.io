@@ -1,0 +1,9 @@
+@article{sun2016novel,
+  title={A novel hierarchical Bag-of-Words model for compact action representation},
+  author={Sun, Qianru and Liu, Hong and Ma, Liqian and Zhang, Tianwei},
+  journal={Neurocomputing},
+  volume={174},
+  pages={722--732},
+  year={2016},
+  publisher={Elsevier}
+}

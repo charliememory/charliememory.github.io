@@ -1,0 +1,8 @@
+@inproceedings{ma2015body,
+  title={Body-structure based feature representation for person re-identification},
+  author={Liu, Hong and Ma, Liqian and Wang, Can},
+  booktitle={Acoustics, Speech and Signal Processing (ICASSP), 2015 IEEE International Conference on},
+  pages={1389--1393},
+  year={2015},
+  organization={IEEE}
+}

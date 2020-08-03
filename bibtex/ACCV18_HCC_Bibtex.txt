@@ -1,0 +1,7 @@
+@InProceedings{ma2018hcc, 
+author = {Ma, Liqian and Tang, Siyu and J. Black, Michael and Van Gool, Luc}, 
+title = {Multi-person Tracking with Automatic Customization}, 
+booktitle = {The 14th Asian Conference on Computer Vision (ACCV)}, 
+month = {December}, 
+year = {2018} 
+}

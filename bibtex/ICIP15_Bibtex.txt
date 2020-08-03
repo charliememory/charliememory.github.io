@@ -1,0 +1,8 @@
+@inproceedings{ma2015online,
+  title={Online person orientation estimation based on classifier update},
+  author={Liu, Hong and Ma, Liqian},
+  booktitle={Image Processing (ICIP), 2015 IEEE International Conference on},
+  pages={1568--1572},
+  year={2015},
+  organization={IEEE}
+}
