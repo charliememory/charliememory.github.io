@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Disentangled Person Image Generation</title>
+  <link rel="stylesheet" href="./project.css?v={random number/string}">
+  <!-- <link rel="stylesheet" href="../ThirdParty/font-awesome/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script language="JavaScript">
+    function ShowHide(divId) {
+      if (document.getElementById(divId).style.display == 'none') {
+        document.getElementById(divId).style.display = 'block';
+      } else {
+        document.getElementById(divId).style.display = 'none';
+      }
+    }
+    </script>
+</head>
+<body>
+
+  <div id="footer"/></div>
+
+    <center>
+    <h1>Disentangled Person Image Generation</h1>
+    <span class="Authors"><a href="http://homes.esat.kuleuven.be/~liqianma/" target="_blank"><b>Liqian Ma,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/qianru-sun/" target="_blank"><b>Qianru Sun,&nbsp;</b></a></span>
+    <span class="Authors"><a href="http://homes.esat.kuleuven.be/~sgeorgou/" target="_blank"><b>Stamatios Georgoulis,&nbsp;</b></a></span>
+    <span class="Authors"><a href="http://www.vision.ee.ethz.ch/~vangool/" target="_blank"><b>Luc Van Gool,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/" target="_blank"><b>Bernt Schiele,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://scalable.mpi-inf.mpg.de" target="_blank"><b>Mario Fritz&nbsp;</b></a></span>
+    <p><b>CVPR 2018, Spotlight</b></p>
+    </center>
+    <!-- <img src="./misc/teaser.jpg" title="Teaser" style="width:808px; height: 386px;" align="middle"> -->
+
+  <div class="wrapper-bg">
+    <div class="navig">
+      <ul>
+      <li><a href="#Introduction" style="background-color: #003399;">Introduction</a></li>
+      <li><a href="#Resources">Resources</a></li>
+      <li><a href="#Framework">Framework</a></li>
+      <li><a href="#Applications">Applications</a></li>
+      <!-- <li><a href="#Spotlight">Spotlight</a></li> -->
+<!--       <li><a href="./synthetic_smmo_cars.html">Synthetic 1</a></li>
+      <li><a href="./synthetic_mmso_cars.html">Synthetic 2</a></li>
+      <li><a href="./real_smmo_spheres.html">Real 1</a></li>
+      <li><a href="./real_smmo_toycars.html">Real 2</a></li>
+      <li><a href="./real_mmso_toycars.html">Real 3</a></li>
+      <li><a href="./real_mmso_objects.html">Real 4</a></li>
+      <li><a href="./real_smmo_objects.html">Real 5</a></li>
+      <li><a href="./real_smmo_web.html">Real 6</a></li> -->
+      </ul>
+    </div>
+  </div>
+  <hr/>
+  <div id="Introduction" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Introduction</h2>
+<!--     <p>Generating novel, yet realistic, images of persons is a challenging task due to the complex interplay between the different image factors, such as the foreground, background and pose information. In this work, we aim at generating such images based on a novel, two-stage reconstruction pipeline that learns a disentangled representation of the aforementioned image factors and generates novel person images at the same time. First, a multi-branched reconstruction network is proposed to disentangle and encode the three factors into embedding features, which are then combined to re-compose the input image itself. Second, three corresponding mapping functions are learned in an adversarial manner in order to map Gaussian noise to the learned embedding feature space, for each factor, respectively. Using the proposed framework, we can manipulate the foreground, background and pose of the input image, and also sample new embedding features to generate such targeted manipulations, that provide more control over the generation process. Experiments on the Market-1501 and Deepfashion datasets show that our model does not only generate realistic person images with new foregrounds, backgrounds and poses, but also manipulates the generated factors and interpolates the in-between states. Another set of experiments on Market-1501 shows that our model can also be beneficial for the person re-identification task.</p> -->
+
+    <p>Motivation:
+    Learn image generation model for persons that explicitly represents foreground, background, and pose.
+    </p>
+
+    <p>Task:
+    Synthesize person images, while independently controlling foreground, background, and pose, in a <b>self-supervised</b> way.
+    </p>
+
+    <p>Key idea:
+    <b>Disentangle</b> person images into the aforementioned components, and then combine.
+    </p>
+
+    <p>Contributions:
+    <ul>
+      <li>A new task of generating person images by disentangling the input into weakly correlated factors.</li>
+      <li>A two-stage framework to learn manipulatable embedding features.</li>
+      <li>A technique to match the distribution of real and fake embedding features through adversarial training.</li>
+      <li>An approach to generate image pairs for re-ID.</li>
+    </ul>
+    </p>
+    <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/vy2KgNdVRfo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </center>
+
+  </div>
+  <hr/>
+
+  <div id="Resources" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Resources</h2>
+    <div class="icons">
+      <span class="MaterialsForDL"><a href="../pdf/CVPR18_Ma_Disentangled_Person_Image_Generation.pdf" target="_blank"> <i class="fa fa-file-pdf-o fa-2x"></i>&nbsp;Paper&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="https://arxiv.org/abs/1712.02621" target="_blank"> <i class="fa fa-link fa-2x"></i>&nbsp;ArXiv&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="https://github.com/charliememory/Disentangled-Person-Image-Generation" target="_blank"> <i class="fa fa-github fa-2x"></i>&nbsp;Code&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="./data/VirtualMarket_500x24.zip" target="_blank"> <i class="fa fa-database fa-2x"></i>&nbsp;VirtualDataset&nbsp;</a></span>
+      <span class="MaterialsForDL"><a onclick="javascript:ShowHide('bibCVPR18DPIG')" href="javascript:;"><i class="fa fa-file-text-o fa-2x"></i>&nbsp;Bibtex&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="./CVPR18_DPIG_slides.pdf" target="_blank"> <i class="fa fa-slideshare fa-2x"></i>&nbsp;Slides&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="./CVPR18_DPIG_poster.pdf" target="_blank"> <i class="fa fa-file fa-2x"></i>&nbsp;Poster&nbsp;</a></span>
+    </div>
+
+    <div class="bib" id="bibCVPR18DPIG" style="DISPLAY: none">
+      <b>Bibtex</b>
+      <br>@InProceedings{ma2017disentangled,
+      <br> author = {Ma, Liqian and Sun, Qianru and Georgoulis, Stamatios and Van Gool, Luc and Schiele, Bernt and Fritz, Mario},
+      <br> title = {Disentangled Person Image Generation},
+      <br> booktitle = {The IEEE International Conference on Computer Vision and Pattern Recognition (CVPR)},
+      <br> month = {June},
+      <br> year = {2018}
+      <br>} 
+    </div>
+  </div>
+  <hr/>
+
+  <div id="Framework" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Framework</h2>
+    <p> Our framework contains two stages as shown below. At stage-I, we use a person’s image as input and disentangle the information into three main factors, namely foreground, background and pose. Each disentangled factor is modeled by embedding features through a reconstruction network. At stage-II, a mapping function is learned to map a Gaussian distribution to a feature embedding distribution.</p>
+    <center>
+    <img src="./imgs/Paper_Framework_adver_comb.svg" title="Framework" style="width:500px;">
+    </center>
+
+    <p>In details, the stage-I is a disentangled image reconstruction pipeline composed of three branches. Note that we use a fully-connected auto-encoder network to reconstruct the pose (incl. keypoint coordinates and visibility), so that we can decode the embedded pose features to obtain the heatmaps at the sampling phase.</p>
+    <center>
+    <img src="./imgs/Paper_Framework_recons_large.svg" title="Stage-I" style="width:800px;">
+    </center>
+
+    <p>During testing, we can sample embedding features of foreground, background and pose from Gaussian noise, and then combine and decode them person images.</p>
+    <center>
+    <img src="./imgs/Paper_Framework_sampling.svg" title="Sampling phase" style="width:800px;">
+    </center>
+    <p></p>
+  </div>
+  <hr/>
+
+  <div id="Applications" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Applications</h2>
+    <p> The proposed framework enables many applications, incl. image manipulation, pose-guided person image generation, image interpolation, image sampling and person re-ID.</p>
+    <ul>
+      <li>Image manipulation</li>
+      <p></p>
+      <center>
+      <img src="./imgs/sampling.svg" style="width:600px;">
+      </center>
+      <br/>
+
+      <li>Interpolating inter-frames</li>
+      <center>
+      <img src="./imgs/seq3.gif" style="width:80px;">&emsp;<img src="./imgs/seq1.gif" style="width:80px;">&emsp;<img src="./imgs/seq2.gif" style="width:80px;"> 
+      <br/>
+      <img src="./imgs/interpolation.svg" style="width:600px;"> 
+      </center>
+      <br/>
+
+      <li>Pose guided person image generation</li>
+      <center>
+      <img src="./imgs/Paper_comparison_PG2.svg" style="width:600px;">
+      <br/>
+      <img src="./imgs/table_PG2.svg" style="width:600px;">
+      </center>
+      <br/>
+
+      <li>Pose guided person video generation (not use temporal info.)</li>
+      <center>
+      <img src="./imgs/1801_shot_crop.gif" style="width:500px;">
+      </center>
+      <br/>
+
+      <li>Unsupervised person re-identification: we generate a virtual re-ID dataset called Virtual Market (VM) as shown below and use it to train a baseline re-ID model Res50 [2].</li>
+      <center>
+      <img src="./imgs/Paper_virtual_market_pair.svg" style="width:600px;">
+      <br/>
+      <img src="./imgs/table_reID.svg" style="width:600px;">
+      </center>
+
+    </ul>
+    <p>References:<br/>
+    [1] L. Ma, J. Xu, Q. Sun, B. Schiele, T. Tuytelaars, and L. Van Gool. Pose guided person image generation. In NIPS, 2017.<br/>
+    [2] H. Fan and L. Zheng and Y. Yang. Unsupervised Person Re-identification: Clustering and Fine-tuning. In ArXiv, 2017.
+    </p>
+
+  </div>
+
+<!--   <hr/>
+  <div id="Spotlight" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <h2 >Spotlight</h2>
+    <center>
+    <video width="900" height="450" controls>
+      <source src="./1801_with_audio_v2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    </center>
+  </div>
+  <hr/> -->
+
+  <div id="footer"/></div>
+</body>
+
+<html>
