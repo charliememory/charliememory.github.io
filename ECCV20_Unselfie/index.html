@@ -45,11 +45,12 @@
       <span class="MaterialsForDL"><a href="https://arxiv.org/abs/2007.15068" target="_blank"> <i class="fa fa-link fa-2x"></i>&nbsp;ArXiv&nbsp;</a></span>
       <span class="MaterialsForDL"> <i class="fa fa-github fa-2x"></i>&nbsp;Code[come soon]&nbsp;</span>
       <span class="MaterialsForDL"> <i class="fa fa-database fa-2x"></i>&nbsp;Dataset[come soon]&nbsp;</span>
-      <span class="MaterialsForDL"><a onclick="javascript:ShowHide('bibECCV20Unselfie')" href="javascript:;"><i class="fa fa-file-text-o fa-2x"></i>&nbsp;Bibtex&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="../bibtex/ECCV20_Unselfie_Bibtex.txt" target="_blank"> <i class="fa fa-file-text-o fa-2x"></i>&nbsp;Bibtex&nbsp;</a></span>
       <span class="MaterialsForDL"><a href="./ECCV20_Unselfie_slides.pdf" target="_blank"> <i class="fa fa-slideshare fa-2x"></i>&nbsp;Slides&nbsp;</a></span>
     </div>
-
+<!-- 
     <div class="bib" id="bibECCV20Unselfie" style="DISPLAY: none">
+      <p style="text-align:left;">
       <b>Bibtex</b>
       <br>@inproceedings{ma2020unselfie,
       <br> author = {Ma, Liqian and Lin, Zhe and Barnes, Connelly and Efros, Alexei A and Lu, Jingwan},
@@ -58,11 +59,12 @@
       <br> month = {August},
       <br> year = {2020}
       <br>} 
-    </div>
+      </p>
+    </div> -->
 
     <img src="./imgs/teaser.svg" title="Teaser" style="width:800px;">
     </center>
-
+ <hr/>
     <!-- <img src="./misc/teaser.jpg" title="Teaser" style="width:808px; height: 386px;" align="middle"> -->
 
   <div id="Abstract" style="margin-left: auto; margin-right: auto; width: 1000px;">
@@ -127,62 +129,63 @@
   </div>
   <hr/> -->
 
-  <div id="Dataset" style="margin-left: auto; margin-right: auto; width: 1000px;">
-    <center>
-      <h2 >Dataset</h2>
-    </center>
+<div id="Dataset" style="margin-left: auto; margin-right: auto; width: 1000px;">
+  <center>
+    <h2 >Dataset</h2>
+  </center>
 
-    <p> <b>Dataset.</b> We collect an unpaired selfie-portrait dataset. There are 4614 selfie photos collected from the Internet, and 23169 neutral-pose portraits collected from three public datasets. We then synthesize paired data for self-supervised learning.</p>
-    <center>
-    <img src="./imgs/dataset.svg" title="Dataset" style="width:800px;">
-    <!-- <img src="./imgs/pair_texture.svg" title="Paired texture data" style="width:500px;"> -->
-    </center>
-  </div>
-  <hr/>
+  <p> <b>Dataset.</b> We collect an unpaired selfie-portrait dataset. There are 4614 selfie photos collected from the Internet, and 23169 neutral-pose portraits collected from three public datasets. We then synthesize paired data for self-supervised learning.</p>
+  <center>
+  <img src="./imgs/dataset.svg" title="Dataset" style="width:800px;">
+  <!-- <img src="./imgs/pair_texture.svg" title="Paired texture data" style="width:500px;"> -->
+  </center>
+</div>
+<hr/>
 
-  <div id="Framework" style="margin-left: auto; margin-right: auto; width: 1000px;">
-    <center>
-      <h2 >Framework</h2>
-    </center>
-    <p> Our pipeline contains three stages. First, Based on the input selfie <em>I<sub>in</sub></em>, we extract its pose information using DensePose. We perform nearest neighbour search on the pose representation to find the target neutral pose <em>P<sub>tgt</sub></em> that has the most similar pose configuration in the upper torso region. Second, using DensePose, we map the pixels in the input selfie to the visible regions of the target pose and then use coordinate-based inpainting [1] to synthesize a coarse human body. Finally, we then use a composition step to refine the coarse result by adding more details and composite it into the original background. 
-    <center>
-    <img src="./imgs/pipeline.svg" title="Pipeline" style="width:800px;">
-    </center>
-  </div>
-  <hr/>
+<div id="Framework" style="margin-left: auto; margin-right: auto; width: 1000px;">
+  <center>
+    <h2 >Framework</h2>
+  </center>
+  <p> Our pipeline contains three stages. First, Based on the input selfie <em>I<sub>in</sub></em>, we extract its pose information using DensePose. We perform nearest neighbour search on the pose representation to find the target neutral pose <em>P<sub>tgt</sub></em> that has the most similar pose configuration in the upper torso region. Second, using DensePose, we map the pixels in the input selfie to the visible regions of the target pose and then use coordinate-based inpainting [1] to synthesize a coarse human body. Finally, we then use a composition step to refine the coarse result by adding more details and composite it into the original background. 
+  <center>
+  <img src="./imgs/pipeline.svg" title="Pipeline" style="width:800px;">
+  </center>
+</div>
+<hr/>
 
-  <div id="Results" style="margin-left: auto; margin-right: auto; width: 1000px;">
-    <center>
-      <h2 >Results</h2>
-    </center>
-
+<div id="Results" style="margin-left: auto; margin-right: auto; width: 1000px;">
+  <center>
     <h2 >Results</h2>
-    <p> Since we defined a brand new unselfie application, there is no prior work to compare to that addresses the exact same problem. Nevertheless, we introduce some modifications to three human synthesis methods, DPIG [2], VUNET [3], and PATN [4]. Note that these methods synthesize pixels based on a pre-specified target pose. To make their approaches work, we need to perform our proposed nearest pose search module to calculate <em>P<sub>tgt</sub></em> and then use their approaches to synthesize the final pixels. Furthermore, we also can synthesize multi-modal results for users to choose from.</p>
-    <ul>
-      <li>Comparisons</li>
-      <p></p>
-      <center>
-      <img src="./imgs/results.svg" style="width:1000px;">
-      </center>
-      <br/>
+  </center>
 
-      <li>Top-5 results</li>
-      <p></p>
-      <center>
-      <img src="./imgs/results_topk.svg" style="width:1000px;">
-      </center>
-      <br/>
+  <p> Since we defined a brand new unselfie application, there is no prior work to compare to that addresses the exact same problem. Nevertheless, we introduce some modifications to three human synthesis methods, DPIG [2], VUNET [3], and PATN [4]. Note that these methods synthesize pixels based on a pre-specified target pose. To make their approaches work, we need to perform our proposed nearest pose search module to calculate <em>P<sub>tgt</sub></em> and then use their approaches to synthesize the final pixels. Furthermore, we also can synthesize multi-modal results for users to choose from.</p>
+  <ul>
+    <li>Comparisons</li>
+    <p></p>
+    <center>
+    <img src="./imgs/results.svg" style="width:800px;">
+    </center>
+    <br/>
 
-    </ul>
+    <li>Top-5 results</li>
+    <p></p>
+    <center>
+    <img src="./imgs/results_topk.svg" style="width:800px;">
+    </center>
+    <br/>
 
-  </div>
+  </ul>
 
-  <p>References:<br/>
-  [1] Grigorev, A., et al. Coordinate-based texture inpainting for pose-guided image generation. In CVPR, 2019. <br/>
-  [2] Ma, L., et al. Disentangled person image generation. In CVPR, 2018. <br/>
-  [3] Esser, P., et al. A variational u-net for conditional appearance and shape generation. In CVPR, 2018. <br/>
-  [4] Zhu, Z., et al. Progressive pose attention transfer for person image generation. In CVPR, 2019. <br/>
-  </p>
+</div>
+
+<p>References:<br/>
+[1] Grigorev, A., et al. Coordinate-based texture inpainting for pose-guided image generation. In CVPR, 2019. <br/>
+[2] Ma, L., et al. Disentangled person image generation. In CVPR, 2018. <br/>
+[3] Esser, P., et al. A variational u-net for conditional appearance and shape generation. In CVPR, 2018. <br/>
+[4] Zhu, Z., et al. Progressive pose attention transfer for person image generation. In CVPR, 2019. <br/>
+</p>
+<hr/>
+
 
 <!--   <hr/>
   <div id="Spotlight" style="margin-left: auto; margin-right: auto; width: 1000px;">
