@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-  <title>Unselfie: Translating Selfies to Neutral-pose Portraits in the Wild</title>
+  <title>FoV-Net: Field-of-View Extrapolation Using Self-Attention and Uncertainty</title>
   <link rel="stylesheet" href="./project.css?v={random number/string}">
   <!-- <link rel="stylesheet" href="../ThirdParty/font-awesome/css/font-awesome.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,25 +30,24 @@
   <div id="footer"/></div>
 
     <center>
-    <h1>Unselfie: Translating Selfies to Neutral-pose Portraits in the Wild</h1>
+    <h1>FoV-Net: Field-of-View Extrapolation Using Self-Attention and Uncertainty</h1>
     <span class="Authors"><a href="http://charliememory.github.io/" target="_blank"><b>Liqian Ma<sup>1</sup>,&nbsp;</b></a></span>
-    <span class="Authors"><a href="https://research.adobe.com/person/zhe-lin/" target="_blank"><b>Zhe Lin<sup>2</sup>,&nbsp;</b></a></span>
-    <span class="Authors"><a href="https://research.adobe.com/person/connelly-barnes/" target="_blank"><b>Connelly Barnes<sup>2</sup>,&nbsp;</b></a></span>
-    <span class="Authors"><a href="https://people.eecs.berkeley.edu/~efros/" target="_blank"><b>Alexei A. Efros<sup>2,3</sup>,&nbsp;</b></a></span>
-    <span class="Authors"><a href="https://research.adobe.com/person/jingwan-lu/" target="_blank"><b>Jingwan Lu<sup>2</sup>&nbsp;</b></a></span>
-    <p><sup>1</sup>KU Leuven &nbsp; <sup>2</sup> Adobe Research &nbsp; <sup>3</sup> UC Berkeley</p>
-    <p><b>ECCV 2020</b></p>
+    <span class="Authors"><a href="https://people.ee.ethz.ch/~georgous/" target="_blank"><b>Stamatios Georgoulis<sup>2</sup>,&nbsp;</b></a></span>
+    <span class="Authors"><a href="https://stephenjia.github.io/" target="_blank"><b>Xu Jia<sup>3</sup>,&nbsp;</b></a></span>
+    <span class="Authors"><a href="http://www.vision.ee.ethz.ch/~vangool/" target="_blank"><b>Luc Van Gool<sup>1,2</sup>,&nbsp;</b></a></span>
+
+    <p><sup>1</sup>KU Leuven &nbsp; <sup>2</sup> ETH Zurich &nbsp; <sup>3</sup> Dalian University of Technology</p>
+    <p><b>IEEE Robotics and Automation Letters 2021</b></p>
     </center>
 
     <center>
     <div class="icons">
-      <span class="MaterialsForDL"><a href="../pdf/ECCV20_Unselfie.pdf" target="_blank"> <i class="fa fa-file-pdf-o fa-2x"></i>&nbsp;Paper&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="../pdf/ECCV20_Unselfie.pdf" target="_blank"> <i class="fa fa-file-pdf-o fa-2x"></i>&nbsp;(TODO) Paper&nbsp;</a></span>
 <!--       <span class="MaterialsForDL"><a href="ECCV20_Unselfie_supp.pdf" target="_blank"> <i class="fa fa-file-pdf-o fa-2x"></i>&nbsp;Supp&nbsp;</a></span> -->
-      <span class="MaterialsForDL"><a href="https://arxiv.org/abs/2007.15068" target="_blank"> <i class="fa fa-link fa-2x"></i>&nbsp;ArXiv&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="https://arxiv.org/abs/2007.15068" target="_blank"> <i class="fa fa-link fa-2x"></i>&nbsp;(TODO) ArXiv&nbsp;</a></span>
       <span class="MaterialsForDL"> <i class="fa fa-github fa-2x"></i>&nbsp;Code[come soon]&nbsp;</span>
-      <span class="MaterialsForDL"> <i class="fa fa-database fa-2x"></i>&nbsp;Dataset[come soon]&nbsp;</span>
-      <span class="MaterialsForDL"><a href="../bibtex/ECCV20_Unselfie_Bibtex.txt" target="_blank"> <i class="fa fa-file-text-o fa-2x"></i>&nbsp;Bibtex&nbsp;</a></span>
-      <span class="MaterialsForDL"><a href="./ECCV20_Unselfie_slides.pdf" target="_blank"> <i class="fa fa-slideshare fa-2x"></i>&nbsp;Slides&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="../bibtex/ECCV20_Unselfie_Bibtex.txt" target="_blank"> <i class="fa fa-file-text-o fa-2x"></i>&nbsp;(TODO) Bibtex&nbsp;</a></span>
+      <span class="MaterialsForDL"><a href="./ECCV20_Unselfie_slides.pdf" target="_blank"> <i class="fa fa-slideshare fa-2x"></i>&nbsp;(TODO) Slides&nbsp;</a></span>
     </div>
 <!-- 
     <div class="bib" id="bibECCV20Unselfie" style="DISPLAY: none">
@@ -75,7 +74,7 @@
     <center>
       <h2 >Abstract</h2>
     </center>
-    <p>Due to the ubiquity of smartphones, it is popular to take photos of one's self, or "selfies." Such photos are convenient to take, because they do not require specialized equipment or a third-party photographer. However, in selfies, constraints such as human arm length often make the body pose look unnatural. To address this issue, we introduce <em>unselfie</em>, a novel photographic transformation that automatically translates a selfie into a neutral-pose portrait. To achieve this, we first collect an unpaired dataset, and introduce a way to synthesize paired training data for self-supervised learning. Then, to <em>unselfie</em> a photo, we propose a new three-stage pipeline, where we first find a target neutral pose, inpaint the body texture, and finally refine and composite the person on the background. To obtain a suitable target neutral pose, we propose a novel nearest pose search module that makes the reposing task easier and enables the generation of multiple neutral-pose results among which users can choose the best one they like. Qualitative and quantitative evaluations show the superiority of our pipeline over alternatives.</p>
+    <p>The ability to make educated predictions about their surroundings, and associate them with certain confidence, is important for intelligent systems, like autonomous vehicles and robots. It allows them to plan early and decide accordingly. Motivated by this observation, in this paper we utilize information from a video sequence with a narrow field-of-view to infer the scene at a wider field-of-view. To this end, we propose a temporally consistent field-of-view extrapolation framework, namely FoV-Net, that: (1) leverages 3D information to propagate the observed scene parts from past frames; (2) aggregates the propagated multi-frame information using an attention-based feature aggregation module and a gated self-attention module, simultaneously hallucinating any unobserved scene parts; and (3) assigns an interpretable uncertainty value at each pixel. Extensive experiments show that FoV-Net does not only extrapolate the temporally consistent wide field-of-view scene better than existing alternatives, but also provides the associated uncertainty which may benefit critical decision-making downstream applications.</p>
 <!--     <p>Generating novel, yet realistic, images of persons is a challenging task due to the complex interplay between the different image factors, such as the foreground, background and pose information. In this work, we aim at generating such images based on a novel, two-stage reconstruction pipeline that learns a disentangled representation of the aforementioned image factors and generates novel person images at the same time. First, a multi-branched reconstruction network is proposed to disentangle and encode the three factors into embedding features, which are then combined to re-compose the input image itself. Second, three corresponding mapping functions are learned in an adversarial manner in order to map Gaussian noise to the learned embedding feature space, for each factor, respectively. Using the proposed framework, we can manipulate the foreground, background and pose of the input image, and also sample new embedding features to generate such targeted manipulations, that provide more control over the generation process. Experiments on the Market-1501 and Deepfashion datasets show that our model does not only generate realistic person images with new foregrounds, backgrounds and poses, but also manipulates the generated factors and interpolates the in-between states. Another set of experiments on Market-1501 shows that our model can also be beneficial for the person re-identification task.</p> -->
 <!-- 
     <p>Motivation:
@@ -101,8 +100,12 @@
     </ul>
     </p> -->
     <center>
-      <h2 >Video (1 min). Full video is <a href="https://www.youtube.com/watch?v=b2IdzUe2hxI&t=2s" target="_blank"> &nbsp;here&nbsp;</a></h2>
-      <iframe width="700" height="394" src="https://www.youtube.com/embed/QZ4AFhPvY54" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <h2 >(TODO) Video.</h2>
+    </center>
+
+    <center>
+      <h2 >Result Video.</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/wfi-Ays5Xgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </center>
 
   </div>
@@ -133,13 +136,13 @@
   </div>
   <hr> -->
 
-<div id="Dataset" style="margin-left: auto; margin-right: auto; width: 1000px; text-align:justify;">
+<div id="Teaser" style="margin-left: auto; margin-right: auto; width: 1000px; text-align:justify;">
   <center>
     <h2 >Dataset</h2>
-  </center>
+  </center><!-- 
   <p> We collect an unpaired selfie-portrait dataset. There are 4614 selfie photos collected from the Internet, and 23169 neutral-pose portraits collected from three public datasets. We then synthesize paired data for self-supervised learning.</p>
-  <center>
-  <img src="./imgs/dataset.svg" title="Dataset" style="width:800px;">
+  <center> -->
+  <img src="./imgs/teaser.gif" title="teaser" style="width:800px;">
   <!-- <img src="./imgs/pair_texture.svg" title="Paired texture data" style="width:500px;"> -->
   </center>
 </div>
