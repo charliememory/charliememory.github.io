@@ -99,13 +99,15 @@
       <li>We design an all-in-one composition module to refine the foreground, complete the background, and compose them together seamlessly.</li>
     </ul>
     </p> -->
-    <center>
-      <h2 >(TODO) Video.</h2>
-    </center>
+
+    <div id="Teaser" style="margin-left: auto; margin-right: auto; width: 1000px; text-align:justify;">
+      <center>
+      <img src="./imgs/teaser.gif" title="teaser" style="width:1000px;">
+      </center>
+    </div>
 
     <center>
-      <h2 >Result Video.</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/wfi-Ays5Xgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h2 >(TODO) Video.</h2>
     </center>
 
   </div>
@@ -136,55 +138,52 @@
   </div>
   <hr> -->
 
-<div id="Teaser" style="margin-left: auto; margin-right: auto; width: 1000px; text-align:justify;">
-  <center>
-    <h2 >Dataset</h2>
-  </center><!-- 
-  <p> We collect an unpaired selfie-portrait dataset. There are 4614 selfie photos collected from the Internet, and 23169 neutral-pose portraits collected from three public datasets. We then synthesize paired data for self-supervised learning.</p>
-  <center> -->
-  <img src="./imgs/teaser.gif" title="teaser" style="width:800px;">
-  <!-- <img src="./imgs/pair_texture.svg" title="Paired texture data" style="width:500px;"> -->
-  </center>
-</div>
 <hr>
 
 <div id="Framework" style="margin-left: auto; margin-right: auto; width: 1000px; text-align:justify;">
   <center>
     <h2 >Framework</h2>
   </center>
-  <p> Our pipeline contains three stages. First, Based on the input selfie <em>I<sub>in</sub></em>, we extract its pose information using DensePose. We perform nearest neighbour search on the pose representation to find the target neutral pose <em>P<sub>tgt</sub></em> that has the most similar pose configuration in the upper torso region. Second, using DensePose, we map the pixels in the input selfie to the visible regions of the target pose and then use coordinate-based inpainting [1] to synthesize a coarse human body. Finally, we then use a composition step to refine the coarse result by adding more details and composite it into the original background. 
+  <p> The proposed FoV-Net framework. Left: the coordinate generation stage, which estimates the scene-level rigid flow, governed by the camera motion, and uses it to calculate the coordinates (i.e., pixel displacements). Right: the frame aggregation stage, which utilizes the generated coordinates to propagate past frames information on a multi-scale feature level -- denoted as red dots -- and then aggregates the propagated features with an Attention-based Feature Aggregation module. To synthesize the final result <em>O<sub>t</sub></em>, a U-Net architecture is adopted to in/out-paint the missing regions, where a Gated Self-Attention module is introduced to handle different ambiguities for better generation quality. Concurrently, an uncertainty map <em>U<sub>t</sub></em> is jointly estimated to interpret the hallucination uncertainty at each pixel and guide the learning by reducing supervision ambiguity. Due to FoV-Net's recurrent nature, note that previous outputs become future inputs for temporal coherency purposes.</p>
   <center>
-  <img src="./imgs/pipeline.svg" title="Pipeline" style="width:800px;">
+  <img src="./imgs/framework1.svg" title="Pipeline" style="width:800px;">
+  </center>
+
+  <center>
+    <h2 >Ambiguity illustration</h2>
+  </center>
+  <p> There is ambiguity existing between the narrow FoV observations and the wide FoV ground truth. The ambiguity mainly comes from two sources: the unobserved information and possible 3D estimation errors. In particular, the pixels in the wide FoV frame can be roughly divided into four types: (a) the observed narrow FoV pixels in the present frame (no ambiguity); (b) the propagated pixels from past frames with accurate propagation (low ambiguity); (c) the propagated pixels from past frames with noisy propagation (medium ambiguity); (d) the unobserved regions (high ambiguity). When the ambiguity is high, strong enforcement of reconstruction losses in those pixels may mislead the training process. In contrast, perceptual and adversarial losses can be more suitable to predict a plausible outcome.</p>
+  <center>
+  <img src="./imgs/ambiguity5.svg" title="Pipeline" style="width:800px;">
   </center>
 </div>
 <hr>
 
 <div id="Results" style="margin-left: auto; margin-right: auto; width: 1000px; text-align:justify;">
   <center>
-    <h2 >Results</h2>
+    <h2 >Result Video.</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/wfi-Ays5Xgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </center>
-  <p> Since we defined a brand new unselfie application, there is no prior work to compare to that addresses the exact same problem. Nevertheless, we introduce some modifications to three human synthesis methods, DPIG [2], VUNET [3], and PATN [4]. Note that these methods synthesize pixels based on a pre-specified target pose. To make their approaches work, we need to perform our proposed nearest pose search module to calculate <em>P<sub>tgt</sub></em> and then use their approaches to synthesize the final pixels. Furthermore, we also can synthesize multi-modal results for users to choose from.</p>
-  <ul>
-    <li>Comparisons</li>
-    <p></p>
-    <center>
-    <img src="./imgs/results.svg" style="width:800px;">
-    </center>
-    <br/>
 
-    <li>Top-5 results</li>
-    <p></p>
-    <center>
-    <img src="./imgs/results_topk.svg" style="width:800px;">
-    </center>
-    <br/>
-  </ul>
+  <h2 >Uncertainty comparisons</h2>
+  </center>
+  <p> </p>
+  <center>
+  <img src="./imgs/sparsification_cs_v2.svg" title="result" style="width:400px;">
+  <img src="./imgs/sparsification_kitti_v2.svg" title="result" style="width:400px;">
+  </center>
+
+  <h2 >Extended applications and failures</h2>
+  </center>
+  <p> </p>
+  <center>
+  <img src="./imgs/kittiDepth_csSeg_failure.svg" title="result" style="width:800px;">
+  </center>
 
   <p>References:<br/>
-  [1] Grigorev, A., et al. Coordinate-based texture inpainting for pose-guided image generation. In CVPR, 2019. <br/>
-  [2] Ma, L., et al. Disentangled person image generation. In CVPR, 2018. <br/>
-  [3] Esser, P., et al. A variational u-net for conditional appearance and shape generation. In CVPR, 2018. <br/>
-  [4] Zhu, Z., et al. Progressive pose attention transfer for person image generation. In CVPR, 2019. <br/>
+  [1] Godard, C., et al. Digging into self-supervised monocular depth estimation. In ICCV, 2019. <br/>
+  [2] Zhao, H., et al. Exploring Self-attention for Image Recognition In CVPR, 2020. <br/>
+  [3] Poggi, M., et al. On the uncertainty of self-supervised monocular depth estimation. In CVPR, 2020. <br/>
   </p>
 </div>
 
