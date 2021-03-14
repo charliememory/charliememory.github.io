@@ -1,0 +1,10 @@
+@article{ma2021fov,
+  title={FoV-Net: Field-of-View Extrapolation Using Self-Attention and Uncertainty},
+  author={Ma, Liqian and Georgoulis, Stamatios and Jia, Xu and Van Gool, Luc},
+  journal={IEEE Robotics and Automation Letters},
+  volume={},
+  number={},
+  pages={},
+  year={2021},
+  publisher={IEEE}
+}
