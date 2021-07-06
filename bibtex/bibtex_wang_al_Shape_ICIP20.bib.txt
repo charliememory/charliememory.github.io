@@ -1,0 +1,10 @@
+@inproceedings{kwang:shapeTranslation,
+  author    = {Kaili Wang and
+		Liqian Ma and 
+		Jos{\'e} {Oramas M} and
+		Luc Van Gool and
+        Tinne Tuytelaars},             
+  title     = {Unpaired Image Shape Translation Across Fashion Data},
+  booktitle = {IEEE International Conference on Image Processing},
+  year      = {2020}
+} 
