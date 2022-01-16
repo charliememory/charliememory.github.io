@@ -1,0 +1,8 @@
+@inproceedings{ma2021direct,
+  title={Direct Dense Pose Estimation},
+  author={Ma, Liqian and Liu, Lingjie and Theobalt, Christian and Van Gool, Luc},
+  booktitle={2021 International Conference on 3D Vision (3DV)},
+  pages={721--730},
+  year={2021},
+  organization={IEEE}
+}
