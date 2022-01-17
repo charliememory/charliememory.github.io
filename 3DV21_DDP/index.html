@@ -84,7 +84,7 @@
     <center>
       <h2 >Video (1 min). Full video is <a href="https://slideslive.com/38972323/direct-dense-pose-estimation?ref=account-96722-latest" target="_blank"> &nbsp;here&nbsp;</a></h2>
 <!--       <iframe width="700" height="394" src="https://www.youtube.com/embed/JIlDwqfxFAA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
-      <iframe  src="https://www.youtube.com/embed/JIlDwqfxFAA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe width="800" height="450"  src="https://www.youtube.com/embed/JIlDwqfxFAA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </center>
 
 <!--   10min https://slideslive.com/38972323/direct-dense-pose-estimation?ref=account-96722-latest
@@ -125,10 +125,11 @@
   </center>
   <p> The ResNet-FPN based backbone is first used to extract a feature pyramid. Then, the feature aggregation module is applied to aggregate the feature pyramid into a global feature representation. Such a global feature is then fed into the instance branch and global IUV branch, respectively, to estimate the instance-level masks and the global IUV representation. Note that, for each instance, the Mask FCN weights are generated dynamically via a weight generator.</p>
   <center>
-  <img src="./imgs/framework.svg" title="Pipeline" style="width:800px;">
+  <img src="./imgs/framework.svg" title="Pipeline" style="width:1000px;">
   </center>
 
   <p> Applying image-based methods to video data directlyleads to the undesirable flickering issue, since the temporal information is not considered. To address this, we introduce a simple and effective 2D temporal-smoothing scheme.</p>
+  <iframe  width="800" height="450" src="https://www.youtube.com/embed/N1rogCFUNSE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 </div>
 <hr>
@@ -158,7 +159,7 @@
   <p>We also apply our method on the human pose transfer task, i.e. translate the dense pose IUV representation input to an RGB image. We adopt the popular pix2pixHD [2] as our translation model and generate the image frame-by-frame. We observe that our temporally smooth dense pose can help alleviate video flickering issue and generate stable video results.</p>
   <center>
     <!-- <img src="./imgs/I2I_video.gif" title="I2I_video" style="width:800px;"> -->
-    <iframe  src="https://www.youtube.com/embed/4DydJJANIBM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe  width="800" height="450" src="https://www.youtube.com/embed/4DydJJANIBM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
   </center>
 
@@ -179,7 +180,7 @@
 
   <center>
     <h2 >Limitations</h2>
-    <img src="./imgs/limitations.svg" title="limitations" style="width:800px;">
+    <img src="./imgs/limitations.svg" title="limitations" style="width:1000px;">
   </center>
   <ul>
     <li> Sensitive to scale variation and may produce noisy results (red circles).</li>
