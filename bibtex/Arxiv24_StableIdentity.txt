@@ -1,0 +1,7 @@
+@inproceedings{dai2023cloth2body,
+  title={Cloth2Body: Generating 3D Human Body Mesh from 2D Clothing},
+  author={Dai, Lu and Ma, Liqian and Qian, Shenhan and Liu, Hao and Liu, Ziwei and Xiong, Hui},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={15007--15017},
+  year={2023}
+}
