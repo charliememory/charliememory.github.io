@@ -1,0 +1,9 @@
+@misc{li2025vfxmasterunlockingdynamicvisual,
+      title={VFXMaster: Unlocking Dynamic Visual Effect Generation via In-Context Learning}, 
+      author={Baolu Li and Yiming Zhang and Qinghe Wang and Liqian Ma and Xiaoyu Shi and Xintao Wang and Pengfei Wan and Zhenfei Yin and Yunzhi Zhuge and Huchuan Lu and Xu Jia},
+      year={2025},
+      eprint={2510.25772},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2510.25772}, 
+}

@@ -1,0 +1,8 @@
+@InProceedings{Yang_2025_ICCV,
+    author    = {Yang, Xindi and Li, Baolu and Zhang, Yiming and Yin, Zhenfei and Bai, Lei and Ma, Liqian and Wang, Zhiyong and Cai, Jianfei and Wong, Tien-Tsin and Lu, Huchuan and Jia, Xu},
+    title     = {VLIPP: Towards Physically Plausible Video Generation with Vision and Language Informed Physical Prior},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2025},
+    pages     = {12360-12370}
+}
